@@ -1,5 +1,6 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import { useFonts } from "expo-font"
+import {Colors} from './../constants/Colors'
 import React from 'react'
 import { useRouter } from 'expo-router'
 
@@ -29,7 +30,7 @@ export default function Login() {
             fontFamily: 'outfit',
             fontSize: 17,
             textAlign: 'center',
-            color: '#7d7d7d',
+            color: Colors.GRAY,
             marginTop: 20
            }}>
             Stay connected with real-time Ai - integrated travel alerts and other features, ensuring you can enjoy your adventures
@@ -49,7 +50,7 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: '#fff',
+    backgroundColor: Colors.WHITE,
     marginTop: -20,
     height: '100%',
     borderTopRightRadius: 30,
