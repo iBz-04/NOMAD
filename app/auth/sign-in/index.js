@@ -1,18 +1,48 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native'
-import React, {useEffect} from 'react'
+import { View, Text, TextInput, StyleSheet, ToastAndroid } from 'react-native'
+import React, {useEffect, useState} from 'react'
 import {useNavigation, useRouter} from 'expo-router'
 import {Colors} from './../../../constants/Colors'
 import { TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import {  signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import {auth} from './../../../configs/FirebaseConfig'
 
 export default function SignIn() {
     const router = useRouter();
     const navigation = useNavigation();
+
+    const [email, setEmail]=useState();
+    const [password, setPassword]=useState();
+
     useEffect ( ()=>{
       navigation.setOptions({
           headerShown: false
       })
   }, [])
+
+  const onSignIn = () => {
+
+    if(!email&&!password&&!FullName) {
+        ToastAndroid.show('Please enter all details', ToastAndroid.BOTTOM);
+        return;
+      }
+
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log("--", errorMessage, errorCode);
+    if (errorCode== 'auth/invalid-credential') {
+        ToastAndroid.show('Invalid credentials', ToastAndroid.BOTTOM);
+    }
+  });
+  }
 
   return (
     <View style= {{
@@ -57,7 +87,9 @@ export default function SignIn() {
             }}>Email</Text>
             <TextInput 
             style={styles.input}
-            placeholder='Enter Email'></TextInput>
+            placeholder='Enter Email'
+            onChangeText={(value) => setEmail(value)}
+            ></TextInput>
         </View>
 
         {/* password */}
@@ -70,11 +102,13 @@ export default function SignIn() {
             <TextInput 
             secureTextEntry={true}
             style={styles.input}
-            placeholder='Enter Password'></TextInput>
+            placeholder='Enter Password'
+            onChangeText={(value) => setPassword(value)}
+            ></TextInput>
         </View>
 
         {/* sign-in button */}
-        <View style = {{
+        <TouchableOpacity onPress={onSignIn} style = {{
             padding:20,
             backgroundColor: Colors.PRIMARY,
             borderRadius: 15,
@@ -84,7 +118,7 @@ export default function SignIn() {
                 color: Colors.WHITE,
                 textAlign: 'center'
             }}>Sign In</Text>
-        </View>
+        </TouchableOpacity>
 
          {/* create account button */}
          <TouchableOpacity 
