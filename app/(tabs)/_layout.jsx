@@ -15,19 +15,19 @@ export default function TabLayout() {
         <Tabs.Screen name="mytrip"
         options={{
           tabBarLabel: 'My Trips',
-          tabBarIcon: ({color}) => <Entypo name="location" size={24} color="black" />
+          tabBarIcon: ({color}) => <Entypo name="location" size={24} color={color} />
         }}
         ></Tabs.Screen>
         <Tabs.Screen name="discover"
          options={{
           tabBarLabel: 'Discover',
-          tabBarIcon: ({color}) => <AntDesign name="earth" size={24} color="black" />
+          tabBarIcon: ({color}) => <AntDesign name="earth" size={24} color={color} />
         }}
         ></Tabs.Screen>
         <Tabs.Screen name="profile"
          options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({color}) => <Ionicons name="person" size={24} color="black" />
+          tabBarIcon: ({color}) => <Ionicons name="person" size={24} color={color} />
         }}
         ></Tabs.Screen>
     </Tabs>
