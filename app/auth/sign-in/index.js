@@ -3,40 +3,50 @@ import React, {useEffect} from 'react'
 import {useNavigation, useRouter} from 'expo-router'
 import {Colors} from './../../../constants/Colors'
 import { TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function SignIn() {
-   
-    const navigation = useNavigation();
     const router = useRouter();
-    useEffect (() => {
-        navigation.setOptions({
-            headerShown: false
-        })
-    }, [])
+    const navigation = useNavigation();
+    useEffect ( ()=>{
+      navigation.setOptions({
+          headerShown: false
+      })
+  }, [])
+
   return (
     <View style= {{
         padding: 25,
         paddingTop: 80,
         backgroundColor: Colors.WHITE,
-        marginTop: 60,
+        // marginTop: 60,
         height: '100%'
     }}>
+        <TouchableOpacity onPress = {()=>router.back()}>
+             <Ionicons name="arrow-back-circle" size={35} color="black" />
+       </TouchableOpacity>
+       
         <Text style= {{
             fontFamily: 'outfit-bold',
-            fontSize: 30
+            fontSize: 30,
+            textAlign: 'center',
+            marginTop: 35
         }}>Let's Sign You In</Text>
           <Text style= {{
             fontFamily: 'outfit',
-            fontSize: 30,
+            fontSize: 18,
             color: Colors.GRAY,
-            marginTop: 20
-        }}>Welcome Back</Text>
+            marginTop: 15,
+            textAlign: 'center'
+        }}>Welcome Back!</Text>
           <Text style= {{
             fontFamily: 'outfit',
-            fontSize: 30,
+            fontSize: 17,
             color: Colors.GRAY,
-            marginTop: 10
-        }}>You've Been missed!</Text>
+            marginTop: 1,
+            textAlign: 'center'
+        }}>You've Been missed</Text>
+
 
         {/* Email */}
         <View style={{
@@ -52,7 +62,7 @@ export default function SignIn() {
 
         {/* password */}
         <View style={{
-            marginTop: 20
+            marginTop: 30
         }}>
             <Text style={{
                 fontFamily: 'outfit'
@@ -68,7 +78,7 @@ export default function SignIn() {
             padding:20,
             backgroundColor: Colors.PRIMARY,
             borderRadius: 15,
-            marginTop: 50
+            marginTop: 90
         }}>
             <Text style={{
                 color: Colors.WHITE,
