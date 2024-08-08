@@ -22,11 +22,11 @@ export default function selectTraveler() {
 
     useEffect(() => {
       console.log(tripData);
-    }, [selectedTraveler])
+    }, [tripData])
 
     useEffect(() => {
       setTripData({...tripData, 
-        travelerCount: selectedTraveler 
+        traveler: selectedTraveler 
       })
     }, [])
 
@@ -69,6 +69,21 @@ export default function selectTraveler() {
 
           </FlatList>
         </View>
+
+        <TouchableOpacity style= {{
+          padding: 18,
+          backgroundColor: Colors.PRIMARY,
+          borderRadius:  15,
+          marginTop: 22
+        }}>
+          <Text  style={{
+            textAlign: 'center',
+            color: Colors.WHITE,
+            fontFamily: 'outfit-medium',
+            fontSize: 18
+          }}
+          >Continue</Text>
+        </TouchableOpacity>
     </View>
   )
 }
