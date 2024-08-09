@@ -1,16 +1,18 @@
-import { View, Text, FlatList } from 'react-native'
-import React, { useEffect } from 'react'
-import { useNavigation } from 'expo-router'
+import { View, Text, FlatList, TouchableOpacity, ToastAndroid } from 'react-native'
+import React, { useEffect, useContext } from 'react'
+import { Link, useNavigation, useRouter } from 'expo-router'
 import { Colors } from '../../constants/Colors';
 import OptionCard from '../../components/CreateTrip/OptionCard';
 import { useState } from 'react';
 import {SelectBudgetOptions} from './../../constants/Options';
+import {CreateTripContext} from './../../context/CreateTripContext'
 
 export default function selectBudget() {
 
     const [selectedOption, setSelectedOption] = useState();
-
+    const {tripData, setTripData}=useContext(CreateTripContext);
     const navigation = useNavigation();
+    const router = useRouter();
 
     useEffect(() => {
         navigation.setOptions({
@@ -18,7 +20,26 @@ export default function selectBudget() {
             headerTransparent: true,
             headerTitle: ''
         })
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        
+        selectedOption&&setTripData({
+            ...tripData,
+            budget: selectedOption?.title
+        })
+    }, [selectedOption])
+
+    const onClickContinue=()=> {
+        if (!selectedOption){
+            ToastAndroid.show('Select a budget', ToastAndroid.LONG);
+            return ;
+        }
+
+        router.push('/create-trip/review-trip');
+    }
+
+
   return (
     <View style = {{
         padding: 25,
@@ -45,15 +66,35 @@ export default function selectBudget() {
 
         <FlatList data={SelectBudgetOptions}
         renderItem={({item, index})=>(
-            <View style={{
-                marginVertical: 10
+            <TouchableOpacity
+            onPress={() =>setSelectedOption(item)}
+            style={{
+                marginVertical: 15
             }}>
                 <OptionCard option={item} selectedOption={selectedOption}></OptionCard>
-            </View>
+            </TouchableOpacity >
         )} >
 
         </FlatList>
       </View>
+
+      <TouchableOpacity
+      onPress={()=> onClickContinue()}
+        style= {{
+          padding: 18,
+          backgroundColor: Colors.PRIMARY,
+          borderRadius:  15,
+          marginTop: 170
+        }}>
+           
+          <Text  style={{
+            textAlign: 'center',
+            color: Colors.WHITE,
+            fontFamily: 'outfit-medium',
+            fontSize: 18
+          }}
+          >Continue</Text>
+        </TouchableOpacity>
     </View>
   )
 }
