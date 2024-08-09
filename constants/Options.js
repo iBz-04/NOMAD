@@ -1,5 +1,8 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import Entypo from '@expo/vector-icons/Entypo';
 
 
 export const SelectTravelsList=[
@@ -32,4 +35,25 @@ export const SelectTravelsList=[
         people: '3 & above'
     }
 
+]
+
+export const SelectBudgetOptions= [
+    {
+        id: 1,
+        title: 'Cheap',
+        desc: 'Explore more for less',
+        icon: <Entypo name="price-tag" size={24} color="black" />
+    },
+    {
+        id: 2,
+        title: 'Moderate',
+        desc: 'Enjoy comfort and value',
+        icon: <FontAwesome name="briefcase" size={24} color="black" />
+    },
+    {
+        id: 3,
+        title: 'Luxury',
+        desc: 'Experience the premium life',
+        icon: <Ionicons name="diamond-sharp" size={24} color="black" />
+    }
 ]
