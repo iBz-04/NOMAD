@@ -10,7 +10,7 @@ export default function Login() {
   return (
 
     <View>
-      <Image source={require('./../assets/images/Login.jpg')} 
+      <Image source={require('./../assets/images/home_page.jpg')} 
       style={{
         width: '100%',
         height: 520,
@@ -20,28 +20,37 @@ export default function Login() {
 
         <View style={styles.container}>
            <Text style={{
-           fontSize: 30,
+           fontSize: 40,
            fontFamily: 'outfit-bold', 
            textAlign: 'center',
            marginTop: 20
-           }}> Travel Pal</Text>
+           }}>NOMAD</Text>
 
            <Text style={{
             fontFamily: 'outfit',
             fontSize: 17,
             textAlign: 'center',
             color: Colors.GRAY,
-            marginTop: 20
+            marginTop: 30
            }}>
-            Stay connected with real-time Ai - integrated travel alerts and other features, ensuring you can enjoy your adventures
+            Plan The Perfect Trip to any Location in Seconds with Artificial Intelligence
            </Text>
+
+          <Image source={require('./../assets/images/map.jpg')} 
+           style={{
+            width: '100%',
+            height: '12%',
+            borderRadius: 35,
+            marginTop: 39
+            }}>
+         </Image>
 
            <TouchableOpacity  style={styles.button} onPress={()=>router.push('auth/sign-in')}>
             <Text style={{color: '#fff', 
               textAlign: 'center', 
               fontFamily: 'outfit', 
               fontSize: 17}}>
-                Get Started</Text>
+                START NOW</Text>
            </TouchableOpacity>
         </View>
     </View>
@@ -51,16 +60,16 @@ export default function Login() {
 const styles = StyleSheet.create({
   container:{
     backgroundColor: Colors.WHITE,
-    marginTop: -20,
+    marginTop: -150,
     height: '100%',
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    borderTopRightRadius: 35,
+    borderTopLeftRadius: 35,
     padding: 25
   }, 
   button: {
     borderRadius: 99,
     backgroundColor: '#000',
     padding: 15,
-    marginTop: '25%'
+    marginTop: '19%'
   }
 })
