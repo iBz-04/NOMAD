@@ -28,7 +28,7 @@ export default function selectTraveler() {
       setTripData({...tripData, 
         traveler: selectedTraveler 
       })
-    }, [])
+    }, [selectedTraveler])
 
 
   return (
