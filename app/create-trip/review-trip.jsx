@@ -1,6 +1,6 @@
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import React, { useEffect, useContext  } from 'react'
-import { useNavigation } from 'expo-router'
+import { useNavigation, useRouter } from 'expo-router'
 import { Colors } from '../../constants/Colors';
 import {CreateTripContext} from './../../context/CreateTripContext'
 import moment from 'moment';
@@ -12,6 +12,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 export default function reviewTrip() {
 
   const {tripData, setTripData}=useContext(CreateTripContext);
+  const router = useRouter();
 
   const navigation = useNavigation();
   useEffect (() => {
@@ -144,7 +145,7 @@ export default function reviewTrip() {
       </View>
       
       <TouchableOpacity
-      // onPress={()=> onClickContinue()}
+      onPress={()=> router.push('/create-trip/generate-trip')}
         style= {{
           padding: 18,
           backgroundColor: Colors.PRIMARY,
