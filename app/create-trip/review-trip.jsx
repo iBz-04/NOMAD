@@ -89,7 +89,8 @@ export default function reviewTrip() {
           }}>Trip Date</Text>
           <Text style={{
             color: Colors.GRAY
-          }}>{moment(tripData?.startDate).format('DD MMM') + " - " + moment(tripData?.endDate).format('DD MMM')}</Text>
+          }}>{moment(tripData?.startDate).format('DD MMM') + " - " + moment(tripData?.endDate).format('DD MMM')+ "  "}
+          ({tripData?.totalNoOfDays} days)</Text>
         </View>
         </View>
 

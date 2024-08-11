@@ -22,7 +22,7 @@ export default function SignIn() {
 
   const onSignIn = () => {
 
-    if(!email&&!password&&!FullName) {
+    if(!email&&!password) {
         ToastAndroid.show('Please enter all details', ToastAndroid.BOTTOM);
         return;
       }
@@ -62,29 +62,30 @@ export default function SignIn() {
             fontSize: 30,
             textAlign: 'center',
             marginTop: 35
-        }}>Let's Sign You In</Text>
+        }}>Sign In</Text>
           <Text style= {{
             fontFamily: 'outfit',
             fontSize: 18,
             color: Colors.GRAY,
-            marginTop: 15,
+            marginTop: 5,
             textAlign: 'center'
         }}>Welcome Back!</Text>
           <Text style= {{
             fontFamily: 'outfit',
-            fontSize: 17,
+            fontSize: 13,
             color: Colors.GRAY,
-            marginTop: 1,
+            marginTop: 10,
             textAlign: 'center'
-        }}>You've Been missed</Text>
-
+        }}>New users must create accounts</Text>
 
         {/* Email */}
         <View style={{
-            marginTop: 50
+            marginTop: 50,
         }}>
             <Text style={{
-                fontFamily: 'outfit'
+                fontFamily: 'outfit-medium',
+                fontSize: 15,
+                marginBottom: 8
             }}>Email</Text>
             <TextInput 
             style={styles.input}
@@ -98,7 +99,9 @@ export default function SignIn() {
             marginTop: 30
         }}>
             <Text style={{
-                fontFamily: 'outfit'
+                 fontFamily: 'outfit-medium',
+                 fontSize: 15,
+                 marginBottom: 8
             }}>Password</Text>
             <TextInput 
             secureTextEntry={true}
@@ -113,7 +116,7 @@ export default function SignIn() {
             padding:20,
             backgroundColor: Colors.PRIMARY,
             borderRadius: 15,
-            marginTop: 90
+            marginTop: 100
         }}>
             <Text style={{
                 color: Colors.WHITE,
