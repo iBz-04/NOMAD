@@ -9,6 +9,7 @@ import { db } from '../../configs/FirebaseConfig';
 import { doc, setDoc } from 'firebase/firestore';
 import  {auth} from '../../configs/FirebaseConfig'
 
+
 export default function GenerateTrip() {
   const {tripData, setTripData}=useContext(CreateTripContext);
   const [loading, setLoading] = useState(false);
@@ -46,7 +47,10 @@ useEffect (() => {
       docId:docId
 
     })
-    router.push('(tabs)/mytrip')
+    console.log("Trip generated, navigating to My Trips page...");
+    router.push('./../(tabs)/mytrip');
+
+    // router.replace('(tabs)/mytrip');
   }
 
   return (
