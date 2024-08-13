@@ -48,7 +48,7 @@ useEffect (() => {
 
     })
     console.log("Trip generated, navigating to My Trips page...");
-    router.push('./../(tabs)/mytrip');
+    router.push('(tabs)/mytrip'); 
 
     // router.replace('(tabs)/mytrip');
   }
