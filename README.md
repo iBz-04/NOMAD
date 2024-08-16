@@ -1,8 +1,12 @@
 # Welcome to My app 👋
 Generate travel plans in Seconds with Ai
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+## Image
+<img src="https://res.cloudinary.com/diekemzs9/image/upload/v1723833920/WhatsApp_Image_2024-08-16_at_21.40.40_ndy5n5.jpg" alt="My Image" width="400"/>
 
 ## Get started
+
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 1. Install dependencies
 
